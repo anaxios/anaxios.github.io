@@ -1,0 +1,100 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Example 3.5</title>
+<SCRIPT LANGUAGE="JavaScript" SRC="jacs.js"></SCRIPT>
+<script type="text/javascript" src="loadCalendar2.js"></script>
+<link rel="stylesheet" type="text/css" href="calendar_style_blue.css" />
+<SCRIPT TYPE="text/javascript">
+<!--
+function popup(mylink, windowname)
+{
+if (! window.focus)return true;
+var href;
+if (typeof(mylink) == 'string')
+   href=mylink;
+else
+   href=mylink.href;
+var showWin = window.open(href, windowname, 'width=600,height=500,resizable=yes,dependent=yes,scrollbars=yes');
+showWin.focus();
+return false;
+}
+//-->
+</SCRIPT>
+</head>
+
+<body>
+
+
+<h1><font face="Arial">Example 3.5</font></h1>
+<h3><font face="Arial" color="#800000">JavaScript Calendar</font></h3>
+<table border="1" width="99%" id="table1" cellspacing="0" cellpadding="3">
+	<tr>
+		<td valign="top">
+		<div id="T1"></div>
+		</td>
+		<td width="200" valign="top"><input value="11-May-2008" id="T2" type="text" size="20">
+		
+		<script type="text/Javascript">
+		function ortCal() {
+		monthNames= ['Jan','Feb','Mar','Apr','May','Jun', 'Jul','Aug','Sep','Oct','Nov','Dec'];
+
+		var x=document.getElementById('T2');
+
+		// value has following format dd-mmm-yyyy
+		var d=x.value.substr(0,2);	// Get Day
+		var y=x.value.substr(7,4);	// Get Year
+		var mm=x.value.substr(3,3);
+		var m=1; 					// this is January by defaul
+		for (i=0;i<=11;i++)
+			{
+			if (mm == monthNames[i]) 
+				{
+				m=i+1;				// Get Month
+				break;
+				}
+			}
+
+	    var dt=1;	// Output date
+	    var h=1;	// Output header
+	    var l=1;	// Output Lives of Saints
+	    var t=0;	// Do not output Troparion
+	    var s=1;	// Output Daily Scripture Reading
+    
+		loadCalendar2(m,d,y,dt,h,l,t,s);
+		return 0;
+		}
+		
+		function setCurrentDate() {
+		// Get todays date and write it into element T2
+		monthNames= ['Jan','Feb','Mar','Apr','May','Jun', 'Jul','Aug','Sep','Oct','Nov','Dec'];
+
+		var today=new Date();		// Get Date
+		var m=today.getMonth();		// Get Month
+		var d=today.getDate();		// Get Day
+		var y=today.getFullYear();	// Get Year
+	
+		var x=document.getElementById('T2');			// If Day < 10 then Day shoud represent with leading 0
+		if (d < 10) {d = "0" + d};						// For exapmle: 01, 02, 03 etc.
+		x.value = d + "-" + monthNames[m] + "-" + y;	// Create date in format dd-mmm-yyyy
+		
+		ortCal();
+
+		return 0;
+		}
+
+		setCurrentDate();
+		JACS.show(document.getElementById('T2'),'jacsStatic2');
+		JACS.next('jacsStatic2', ortCal);
+		</script>
+		
+		</td>
+	</tr>
+</table>
+
+
+</body>
+
+</html>

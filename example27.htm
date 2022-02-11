@@ -1,0 +1,80 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Example 2.7</title>
+<script type="text/javascript" src="loadCalendar2.js"></script>
+<link rel="stylesheet" type="text/css" href="calendar_style_cherry.css" />
+<SCRIPT TYPE="text/javascript">
+<!--
+function popup(mylink, windowname)
+{
+if (! window.focus)return true;
+var href;
+if (typeof(mylink) == 'string')
+   href=mylink;
+else
+   href=mylink.href;
+var showWin = window.open(href, windowname, 'width=600,height=500,resizable=yes,dependent=yes,scrollbars=yes');
+showWin.focus();
+return false;
+}
+//-->
+</SCRIPT>
+</head>
+
+<body>
+
+
+<h1><font face="Arial">Example 2.7</font></h1>
+<h3><font face="Arial" color="#800000">Buttons. Today, Next Day and Previous Day Buttons</font></h3>
+
+<button onclick="previousDate()" style="height: 26px; width:24px; font-family:fixedSys; font-size:12px"><</button>
+
+<button onclick="todayDate()" style="height: 26px; width:24px; font-family:fixedSys; font-size:12px;">&nbsp;</button>
+
+<button onclick="nextdayDate()" style="height: 26px; width:24px; font-family:fixedSys; font-size:12px">></button>
+
+<div id="T1"></div>
+
+<script type="text/Javascript">
+var currentDay = new Date();	// Set up current day for today
+
+function callCalendar(x) {
+var mm=x.getMonth()+1;	// Get today's month
+var dd=x.getDate();		// Get today's day
+var yy=x.getFullYear(); // Get today's year
+var dt=1;					// Output date
+var hh=1;					// Output header
+var ll=1;					// Output Lives of Saints
+var tt=0;					// Do not output Troparions
+var ss=1;					// Output Daily Scripture Reading
+
+loadCalendar2(mm,dd,yy,dt,hh,ll,tt,ss);
+}
+
+function todayDate() {
+var today=new Date();		// Get today's date
+callCalendar(today);
+currentDay = today;
+}
+
+function nextdayDate() {
+var next = new Date(currentDay.getTime() + 24*60*60*1000);	// Get tomorrow date
+callCalendar(next);
+currentDay = next;
+}
+
+function previousDate() {
+var previous = new Date(currentDay.getTime() - 24*60*60*1000);	// Get tomorrow date
+callCalendar(previous);
+currentDay = previous;
+}
+
+</script>
+
+
+</body>
+
+</html>

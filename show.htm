@@ -1,0 +1,241 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<script type="text/javascript" src="loadCalendar2.js"></script>
+<SCRIPT LANGUAGE="JavaScript" SRC="jacs.js"></SCRIPT>
+
+<title>Show</title>
+
+<link rel="stylesheet" type="text/css" href="calendar_style_blue.css" />
+
+<SCRIPT TYPE="text/javascript">
+<!--
+function popup(mylink, windowname)
+{
+if (! window.focus)return true;
+var href;
+if (typeof(mylink) == 'string')
+   href=mylink;
+else
+   href=mylink.href;
+var showWin = window.open(href, windowname, 'width=600,height=500,resizable=yes,dependent=yes,scrollbars=yes');
+showWin.focus();
+return false;
+}
+//-->
+</SCRIPT>
+
+</head>
+
+<body>
+
+<table border="0" width="99%" id="table2" cellspacing="0">
+	<tr>
+		<td valign="top">
+
+<div id="T1"></div>
+
+</td>
+		<td valign="top" width="300">
+		<p><font face="Arial"><input  type='checkbox' id='dt' onclick="ortCal();" checked/><font size="2"> 
+		(0/1) 
+		Date<br>
+		   </font>
+		   <input  type='checkbox' id='header' onclick="ortCal();" checked/><font size="2"> 
+		(0/1) 
+		Header<br>
+		   
+		   </font></font>
+		   
+		   <form name="livesform" id=levesf action="#">
+		   <font face="Arial">
+		   <input  type='radio' id='lives0' name=livesg onclick="ortCal();" value=0 /><font size="2"> 
+			(0) 
+			Do not display Lives of the Saints<br>
+		   </font>
+		   <input  type='radio' id='lives1' name=livesg onclick="ortCal();" value=1 checked/><font size="2"> 
+			(1) 
+			Lives of the Saints<br>
+		   </font>
+		   <input  type='radio' id='lives2' name=livesg onclick="ortCal();" value=2 /><font size="2"> 
+			(2) 
+			Lives of the Saints in one Paragraph<br>
+		   </font>
+		   <input  type='radio' id='lives3' name=livesg onclick="ortCal();" value=3 /><font size="2"> 
+			(3) 
+			Lives of the Major Saints<br>
+		   </font>
+		   <input  type='radio' id='lives4' name=livesg onclick="ortCal();" value=4 /><font size="2"> 
+			(4) 
+			Lives of the Major Saints in one Paragraph<br>
+		   </font>
+		   <input  type='radio' id='lives5' name=livesg onclick="ortCal();" value=5 /><font size="2"> 
+			(5) 
+			Major Saints + New Martyrs<br>
+		   </font>
+		   <input  type='radio' id='lives6' name=livesg onclick="ortCal();" value=6 /><font size="2"> 
+			(6) 
+			Major Saints + New Martyrs in one Paragraph<br>
+		   </font></font>
+		   </form>
+
+		   <form name="scriptureform" id=scripturef action="#">
+		   <font face="Arial">
+		   <input  type='radio' id='scripture0' name=scriptureg onclick="ortCal();" value=0 /><font size="2"> 
+			(0) 
+			Do not display Scripture Readings<br>
+		   </font>
+		   <input  type='radio' id='scripture1' name=scriptureg onclick="ortCal();" value=1 checked/><font size="2"> 
+			(1) 
+			The Scripture Readings<br>
+		   </font>
+		   <input  type='radio' id='scripture2' name=scriptureg onclick="ortCal();" value=2 /><font size="2"> 
+			(2) 
+			The Scripture Readings without Header<br>
+		   </font></font>
+		   </form>
+
+		   <form name="troparionform" id=troparionf action="#">
+		   <font face="Arial">
+		   <input  type='radio' id='troparion0' name=tropariong onclick="ortCal();" value=0 /><font size="2"> 
+			(0) 
+			Do not display Troparion<br>
+		   </font>
+		   <input  type='radio' id='troparion1' name=tropariong onclick="ortCal();" value=1 checked/><font size="2"> 
+			(1) 
+			Troparion<br>
+		   </font>
+		   <input  type='radio' id='troparion2' name=tropariong onclick="ortCal();" value=2 /><font size="2"> 
+			(2) 
+			Troparion without Header<br>
+		   </font></font>
+		   </form>
+
+		</p>
+
+<table border="0" width="200" id="table3" cellspacing="0" cellpadding="0">
+	<tr>
+		<td>
+
+<p align="center">
+
+<font face="Arial">
+
+<input value="13-Mar-2008" id="T2" type="hidden" size="29"><font size="2"> </font>
+</font>
+		
+		</td>
+	</tr>
+	<tr>
+		<td>
+		
+<span style="text-align: center;">
+<font face="Arial" size="2">
+<script type="text/Javascript">
+
+function ortCal() {
+	monthNames= ['Jan','Feb','Mar','Apr','May','Jun', 'Jul','Aug','Sep','Oct','Nov','Dec'];
+
+	var x=document.getElementById('T2');
+//	alert(x.value);
+
+// value has following format dd-mmm-yyyy
+	var d=x.value.substr(0,2);
+	var y=x.value.substr(7,4);
+
+	var mm=x.value.substr(3,3);
+	var m=1; // this is January by defaul
+	for (i=0;i<=11;i++)
+		{
+		if (mm == monthNames[i]) 
+			{
+			m=i+1;
+			break;
+			}
+		}
+    var dt=0;
+    var t=0;
+    var h=0;
+    var l=0;
+    var s=0
+//    if (document.getElementById('troparion').checked) {t=1};
+    if (document.getElementById('dt').checked) {dt=1};
+    if (document.getElementById('header').checked) {h=1};
+ 
+	var lform = document.getElementById('levesf');
+	var len = lform.livesg.length;
+	 for (i = 0; i <len; i++) {
+		if (lform.livesg[i].checked) {
+		l = lform.livesg[i].value
+									}
+								}
+
+	var sform = document.getElementById('scripturef');
+	var len = sform.scriptureg.length;
+	 for (i = 0; i <len; i++) {
+		if (sform.scriptureg[i].checked) {
+		s = sform.scriptureg[i].value
+									}
+								}
+
+	var tform = document.getElementById('troparionf');
+	var len = tform.tropariong.length;
+	 for (i = 0; i <len; i++) {
+		if (tform.tropariong[i].checked) {
+		t = tform.tropariong[i].value
+									}
+								}
+    
+	loadCalendar2(m,d,y,dt,h,l,t,s);
+	return 0;
+}
+
+function setCurrentDate() {
+	monthNames= ['Jan','Feb','Mar','Apr','May','Jun', 'Jul','Aug','Sep','Oct','Nov','Dec'];
+
+	var today=new Date();
+	var m=today.getMonth();
+	var d=today.getDate();
+	var y=today.getFullYear();
+	
+	var x=document.getElementById('T2');
+	if (d < 10) {d = "0" + d};
+	x.value = d + "-" + monthNames[m] + "-" + y; 
+	ortCal();	
+
+return 0;
+}
+
+	setCurrentDate();
+
+   JACS.show(document.getElementById('T2'),'jacsStatic2');
+//   JACS.next('jacsStatic2',trivialAlert,
+//        'This alert is generated by a function ' +
+//         'that runs when a date is selected.');
+//	JACS.next('jacsStatic2', loadTxt,7,1,2008);
+	JACS.next('jacsStatic2', ortCal);
+</script>
+
+
+</font>
+
+
+</span>		
+		
+		</td>
+	</tr>
+</table>
+
+
+		<font face="Arial" size="2">
+
+
+<br>
+&nbsp;</font><p>&nbsp;</td>
+	</tr>
+</table>
+
+</body>
+
+</html>

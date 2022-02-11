@@ -1,0 +1,89 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Example 4.2</title>
+<script type="text/javascript" src="loadCalendar2.js"></script>
+<link rel="stylesheet" type="text/css" href="calendar_style_gray.css" />
+
+<!-- calendar stylesheet -->
+  <link rel="stylesheet" type="text/css" media="all" href="jscalendar-1.0/calendar-win2k-cold-1.css" title="win2k-cold-1" />
+<!-- main calendar program -->
+<script type="text/javascript" src="jscalendar-1.0/calendar.js"></script>
+  <!-- language for the calendar -->
+<script type="text/javascript" src="jscalendar-1.0/lang/calendar-en.js"></script>
+
+  <!-- the following script defines the Calendar.setup helper function, which makes
+       adding a calendar a matter of 1 or 2 lines of code. -->
+<script type="text/javascript" src="jscalendar-1.0/calendar-setup.js"></script>
+
+
+<SCRIPT TYPE="text/javascript">
+<!--
+function popup(mylink, windowname)
+{
+if (! window.focus)return true;
+var href;
+if (typeof(mylink) == 'string')
+   href=mylink;
+else
+   href=mylink.href;
+var showWin = window.open(href, windowname, 'width=600,height=500,resizable=yes,dependent=yes,scrollbars=yes');
+showWin.focus();
+return false;
+}
+//-->
+</SCRIPT>
+</head>
+
+<body>
+
+
+<h1><font face="Arial">Example 4.2</font></h1>
+<h3><font face="Arial" color="#800000">Another JavaScript Calendar</font></h3>
+
+<table border="1" width="100%" cellspacing="0" cellpadding="2" id="table1">
+	<tr>
+		<td valign="top">
+		<div id="T1"></div>
+		</td>
+		<td width="180" valign="top">
+		<div style="float: right;" id="calendar-container"></div>
+		</td>
+		</tr>
+</table>
+
+<script type="text/javascript">
+  function dateChanged(calendar) {
+    // Beware that this function is called even if the end-user only
+    // changed the month/year.  In order to determine if a date was
+    // clicked you can use the dateClicked property of the calendar:
+    if (calendar.dateClicked) {
+      // OK, a date was clicked, redirect to /yyyy/mm/dd/index.php
+      var yy = calendar.date.getFullYear();
+      var mm = calendar.date.getMonth() + 1;     // integer, 0..11
+      var dd = calendar.date.getDate();      // integer, 1..31
+      // redirect...
+      var dt=1;					// Output date
+      var hh=1;					// Output header
+      var ll=1;					// Output Lives of Saints
+      var tt=0;					// Do not output Troparions
+      var ss=1;					// Output Daily Scripture Reading
+
+      loadCalendar2(mm,dd,yy,dt,hh,ll,tt,ss);
+    }
+  };
+
+  Calendar.setup(
+    {
+      flat         : "calendar-container", // ID of the parent element
+      flatCallback : dateChanged,           // our callback function
+      range        : [1970, 2037]          // minimum and maximum years
+    }
+  );
+</script>
+
+</body>
+
+</html>

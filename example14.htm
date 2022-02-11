@@ -1,0 +1,50 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Example 1.4</title>
+<script type="text/javascript" src="loadCalendar2.js"></script>
+<link rel="stylesheet" type="text/css" href="calendar_style_cherry.css" />
+<SCRIPT TYPE="text/javascript">
+<!--
+function popup(mylink, windowname)
+{
+if (! window.focus)return true;
+var href;
+if (typeof(mylink) == 'string')
+   href=mylink;
+else
+   href=mylink.href;
+var showWin = window.open(href, windowname, 'width=600,height=500,resizable=yes,dependent=yes,scrollbars=yes');
+showWin.focus();
+return false;
+}
+//-->
+</SCRIPT>
+</head>
+
+<body>
+
+
+<h1><font face="Arial">Example 1.4</font></h1>
+<h3><font face="Arial" color="#800000">Just today's Scripture Readings. </font></h3>
+<div id="T1"></div>
+
+<script type="text/Javascript">
+var today=new Date();		// Get today's date
+var mm=today.getMonth()+1;	// Get today's month
+var dd=today.getDate();		// Get today's day
+var yy=today.getFullYear(); // Get today's year
+var dt=0;					// Do not output date
+var hh=0;					// Do not output header
+var ll=0;					// Do not output Lives of Saints
+var tt=0;					// Do not output Troparions
+var ss=1;					// Output Daily Scripture Reading
+
+loadCalendar2(mm,dd,yy,dt,hh,ll,tt,ss);
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+a:link 		{font-size:10pt; color: rgb(0,0,255); text-decoration:none; font-weight:bold}
+a:visited 	{font-size:10pt; color: rgb(0,0,255); text-decoration:none; font-weight:bold}
+a:hover 	{font-size:10pt; color: rgb(153,153,153); text-decoration:none; font-weight:bold}
+
+a:link.main 	{font-size:10pt; color: #800000}
+a:visited.main 	{font-size:10pt; color: #800000}
+a:hover.main 	{font-size:10pt; color: #cc6600} 
+a:active.main 	{font-size:10pt; color: #ff0000}
+
+.normaltext { color: #000000; font-weight: normal; font-size: 10pt; font-family: arial, helvetica, sans-serif }
+.minortext { color: #757575; font-weight: normal; font-size: 10pt; font-family: arial, helvetica, sans-serif }
+.dataheader { color: #ff3300; font-weight: bold; font-size: 11pt; font-family: arial, helvetica, sans-serif }
+.headerheader { color: #000000; font-weight: bold; font-size: 11pt; font-family: arial, helvetica, sans-serif }
+.headerfast { color: #008000; font-weight: bold; font-size: 11pt; font-family: arial, helvetica, sans-serif }
+.headernofast { color: #ff5050; font-weight: bold; font-size: 11pt; font-family: arial, helvetica, sans-serif }
+.scriptureheader { color: #000000; font-weight: bold; font-size: 11pt; font-family: arial, helvetica, sans-serif }
+.troparionheader { color: #000000; font-weight: bold; font-size: 11pt; font-family: arial, helvetica, sans-serif }
+.troparionseparator { background-color: #800000 }
+
+
+.pdataheader { word-spacing: 0; text-indent: 0; line-height: 100%; margin-left: 0; margin-right: 0; margin-top: 10; margin-bottom: 5 }
+.pheaderheader { word-spacing: 0; text-indent: 0; line-height: 100%; margin-left: 0; margin-right: 0; margin-top: 10; margin-bottom: 5 }
+.pscriptureheader { word-spacing: 0; text-indent: 0; line-height: 100%; margin-left: 0; margin-right: 0; margin-top: 10; margin-bottom: 5 }
+.ptroparionheader { word-spacing: 0; text-indent: 0; line-height: 100%; margin-left: 0; margin-right: 0; margin-top: 10; margin-bottom: 5 }

@@ -1,0 +1,34 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Example 1.1</title>
+<script type="text/javascript" src="loadCalendar2.js"></script>
+<link rel="stylesheet" type="text/css" href="calendar_style_cherry.css" />
+</head>
+
+<body>
+
+
+<h1><font face="Arial">Example 1.1</font></h1>
+<h3><font face="Arial" color="#800000">Orthodox Calendar for current day</font></h3>
+<div id="T1"></div>
+
+<script type="text/Javascript">
+var today=new Date();		// Get today's date
+var mm=today.getMonth()+1;	// Get today's month
+var dd=today.getDate();		// Get today's day
+var yy=today.getFullYear(); // Get today's year
+var dt=1;					// Output date
+var hh=1;					// Output header
+var ll=1;					// Output Lives of Saints
+var tt=1;					// Output Troparions
+var ss=1;					// Output Daily Scripture Reading
+
+loadCalendar2(mm,dd,yy,dt,hh,ll,tt,ss);
+</script>
+
+</body>
+
+</html>
